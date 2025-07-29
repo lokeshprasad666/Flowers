@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Garden</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtual Garden – For My Love</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <header>
-        <h1>Welcome to the Virtual Garden</h1>
-        <p>A special place to celebrate my girlfriend on Girlfriend's Day.</p>
-    </header>
-    <main>
-        <div class="garden">
-            <div class="flower" data-meaning="Your smile brightens my day.">🌼</div>
-            <div class="flower" data-meaning="You are my sunshine.">🌻</div>
-            <div class="flower" data-meaning="Your kindness inspires me.">🌷</div>
-            <div class="flower" data-meaning="You make my heart bloom.">🌺</div>
-            <div class="flower" data-meaning="Together, we grow stronger.">🌸</div>
-        </div>
-    </main>
-    <footer>
-        <p>Created with love for my amazing girlfriend.</p>
-    </footer>
-    <script src="scripts/main.js"></script>
+<body class="night">
+<header class="site-header">
+    <h1>Virtual Garden for You</h1>
+    <p class="subtitle">Hover or tap the flowers to see what I adore about you</p>
+
+    <div class="controls">
+        <button id="toggleMode">Night</button>
+    </div>
+</header>
+
+<main>
+    <section id="garden" class="garden" aria-label="Flower garden"></section>
+    <div class="ground" aria-hidden="true"></div>
+</main>
+
+<footer class="site-footer">
+    Made with love. Happy Girlfriend’s Day.
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
