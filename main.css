@@ -1,80 +1,42 @@
-body {
-    background-color: #e0f7fa;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+const flowerMessages = [
+    "Your smile brightens my world 🌼",
+    "You’re my peace and strength 🌸",
+    "Your laughter is my favorite song 🌷",
+    "You make everything better 🌺",
+    "You are my home 🌹",
+    "Every moment with you blooms with love 💐"
+];
+
+const garden = document.getElementById("garden");
+
+function createFlower(message) {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+
+    for (let i = 0; i < 5; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        flower.appendChild(petal);
+    }
+
+    const center = document.createElement("div");
+    center.className = "center";
+    flower.appendChild(center);
+
+    const label = document.createElement("div");
+    label.className = "message";
+    label.innerText = message;
+    flower.appendChild(label);
+
+    garden.appendChild(flower);
 }
 
-.garden {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 20px;
-    width: 80%;
-    max-width: 1200px;
-}
+// Add all flowers
+flowerMessages.forEach(msg => createFlower(msg));
 
-.flower {
-    width: 100px;
-    height: 100px;
-    background-color: #ffeb3b;
-    border-radius: 50%;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.flower:hover {
-    transform: scale(1.2);
-}
-
-.flower::before,
-.flower::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.flower::before {
-    width: 120%;
-    height: 120%;
-    background-color: #ff9800;
-    top: -10%;
-    left: -10%;
-    opacity: 0;
-}
-
-.flower:hover::before {
-    opacity: 1;
-}
-
-.flower::after {
-    width: 80%;
-    height: 80%;
-    background-color: #f44336;
-    top: 10%;
-    left: 10%;
-    opacity: 0;
-}
-
-.flower:hover::after {
-    opacity: 1;
-}
-
-.message {
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    display: none;
-}
-
-.flower:hover .message {
-    display: block;
-}
+// Optional: Night/Day toggle
+document.getElementById("toggleMode").addEventListener("click", function () {
+    document.body.classList.toggle("night");
+    document.body.classList.toggle("day");
+    this.textContent = document.body.classList.contains("night") ? "Night" : "Day";
+});
